@@ -4,27 +4,25 @@ using UnityEngine;
 //test
 public class Slingshot : MonoBehaviour
 {
-    public LineRenderer[] lineRenderers;
-    public Transform[] stripPosition;
-    public Transform center;
-    public Transform idlePosition;
+    LineRenderer[] lineRenderers;
+    Transform[] stripPosition;
+    Transform center;
+    Transform idlePosition;
 
-    public Vector3 currentPosition;
+    Vector3 currentPosition;
 
-    public float maxLength;
-
-    public float bottomBoundary;
-
+    float maxLength;
+    float bottomBoundary;
     bool isMouseDown;
 
     // bawah ni untuk main character punya attributes
-    public GameObject birdPrefab;
+    GameObject birdPrefab;
 
-    public float birdPositionOffSet;
+    float birdPositionOffSet;
     Rigidbody2D bird;
     Collider2D birdCollider;
 
-    public float force;
+    float force;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +88,7 @@ public class Slingshot : MonoBehaviour
 
         bird = null;
         birdCollider = null;
-        Invoke("CreateBird", 2);
+        //Invoke("CreateBird", 2);
     }
     void ResetStrips() // bila dh tarik, dia akan reset balik position getah hitam tu
     {
