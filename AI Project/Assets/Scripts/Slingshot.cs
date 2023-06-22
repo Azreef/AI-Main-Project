@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
+    
+    
     public LineRenderer[] lineRenderers;
     public Transform[] stripPosition;
     public Transform center;
