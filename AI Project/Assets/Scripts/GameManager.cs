@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         setScoreText();
-        Debug.Log(health);
+        //Debug.Log(health);
 
     }
 

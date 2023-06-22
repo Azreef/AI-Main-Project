@@ -1,28 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//test
+
 public class Slingshot : MonoBehaviour
 {
-    LineRenderer[] lineRenderers;
-    Transform[] stripPosition;
-    Transform center;
-    Transform idlePosition;
+    public LineRenderer[] lineRenderers;
+    public Transform[] stripPosition;
+    public Transform center;
+    public Transform idlePosition;
 
-    Vector3 currentPosition;
+    public Vector3 currentPosition;
 
-    float maxLength;
-    float bottomBoundary;
+    public float maxLength;
+
+    public float bottomBoundary;
+
     bool isMouseDown;
-
+    bool bulletIsExist;
     // bawah ni untuk main character punya attributes
-    GameObject birdPrefab;
+    public GameObject bulletPrefab;
 
-    float birdPositionOffSet;
-    Rigidbody2D bird;
-    Collider2D birdCollider;
+    public float bulletPositionOffSet;
+    Rigidbody2D bullet;
+    Collider2D bulletCollider;
 
-    float force;
+    public float force;
 
     // Start is called before the first frame update
     void Start()
@@ -32,22 +34,35 @@ public class Slingshot : MonoBehaviour
         lineRenderers[0].SetPosition(0, stripPosition[0].position);
         lineRenderers[1].SetPosition(0, stripPosition[1].position);
 
-        CreateBird();
+
+        CreateBullet();
+
+        bulletIsExist = true;
     }
 
-    void CreateBird()
+    void CreateBullet()
     {
-        bird = Instantiate(birdPrefab).GetComponent<Rigidbody2D>();
-        birdCollider = bird.GetComponent<Collider2D>();
-        birdCollider.enabled = false;
+        bullet = Instantiate(bulletPrefab).GetComponent<Rigidbody2D>();
+        bulletCollider = bullet.GetComponent<Collider2D>();
+        bulletCollider.enabled = false;
 
-        bird.isKinematic = true;
-
+        bullet.isKinematic = true;
     }
     // Update is called once per frame
+
+    void SpawnNewBullet()
+    {
+        if(!bulletIsExist)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                CreateBullet();
+            }
+        }
+    }
     void Update()
     {
-        if(isMouseDown)
+        if (isMouseDown)
         {
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 10;
@@ -58,15 +73,17 @@ public class Slingshot : MonoBehaviour
             currentPosition = ClampBoundary(currentPosition);
             SetStrips(currentPosition);
 
-            if(birdCollider)
+            if (bulletCollider)
             {
-                birdCollider.enabled = true;
+                bulletCollider.enabled = true;
             }
         }
         else
         {
             ResetStrips();
         }
+
+        SpawnNewBullet();
     }
 
     private void OnMouseDown()
@@ -82,14 +99,16 @@ public class Slingshot : MonoBehaviour
 
     void Shoot()
     {
-        bird.isKinematic = false;
-        Vector3 birdForce = (currentPosition - center.position) * force * -1;
-        bird.velocity = birdForce;
+        bullet.isKinematic = false;
+        Vector3 bulletForce = (currentPosition - center.position) * force * -1;
+        bullet.velocity = bulletForce;
 
-        bird = null;
-        birdCollider = null;
-        //Invoke("CreateBird", 2);
+        bullet = null;
+        bulletCollider = null;
+
+        bulletIsExist = false;
     }
+
     void ResetStrips() // bila dh tarik, dia akan reset balik position getah hitam tu
     {
         currentPosition = idlePosition.position;
@@ -101,13 +120,12 @@ public class Slingshot : MonoBehaviour
         lineRenderers[0].SetPosition(1, position);
         lineRenderers[1].SetPosition(1, position);
 
-        if(bird)
+        if (bullet)
         {
             Vector3 dir = position - center.position;
-            bird.transform.position = position + dir.normalized * birdPositionOffSet;
-            bird.transform.right = -dir.normalized;
+            bullet.transform.position = position + dir.normalized * bulletPositionOffSet;
+            bullet.transform.right = -dir.normalized;
         }
-        
     }
 
     Vector3 ClampBoundary(Vector3 vector)
@@ -115,5 +133,5 @@ public class Slingshot : MonoBehaviour
         vector.y = Mathf.Clamp(vector.y, bottomBoundary, 1000);
         return vector;
     }
-        
+
 }
