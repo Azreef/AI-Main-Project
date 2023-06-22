@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
-    
-    
+
+    [SerializeField] GameManager gameManager;
+
     public LineRenderer[] lineRenderers;
     public Transform[] stripPosition;
     public Transform center;
@@ -19,6 +20,8 @@ public class Slingshot : MonoBehaviour
 
     bool isMouseDown;
     bool bulletIsExist;
+
+
     // bawah ni untuk main character punya attributes
     public GameObject bulletPrefab;
 
@@ -54,17 +57,15 @@ public class Slingshot : MonoBehaviour
 
     void SpawnNewBullet()
     {
-        if(!bulletIsExist)
+        if(!bulletIsExist && Input.GetKeyDown(KeyCode.Space))
         {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                CreateBullet();
-            }
+            CreateBullet();
+            bulletIsExist = true;
         }
     }
     void Update()
     {
-        if (isMouseDown)
+        if (isMouseDown )
         {
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 10;
@@ -86,11 +87,15 @@ public class Slingshot : MonoBehaviour
         }
 
         SpawnNewBullet();
+        Debug.Log(bulletIsExist);
     }
 
     private void OnMouseDown()
     {
-        isMouseDown = true;
+        if (bulletIsExist)
+        {
+            isMouseDown = true;
+        }
     }
 
     private void OnMouseUp()
@@ -101,14 +106,20 @@ public class Slingshot : MonoBehaviour
 
     void Shoot()
     {
-        bullet.isKinematic = false;
-        Vector3 bulletForce = (currentPosition - center.position) * force * -1;
-        bullet.velocity = bulletForce;
+        if(bulletIsExist)
+        {
+            bullet.isKinematic = false;
+            Vector3 bulletForce = (currentPosition - center.position) * force * -1;
+            bullet.velocity = bulletForce;
 
-        bullet = null;
-        bulletCollider = null;
+            bullet = null;
+            bulletCollider = null;
+        }
+        
 
         bulletIsExist = false;
+
+        gameManager.incrementScore();
     }
 
     void ResetStrips() // bila dh tarik, dia akan reset balik position getah hitam tu

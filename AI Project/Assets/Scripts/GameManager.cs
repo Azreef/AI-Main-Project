@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
         
         setHealthBar();
     }
+    public void incrementScore()
+    {
+        currentScore++;
+    }
 
     void setScoreText()
     {
@@ -33,12 +37,7 @@ public class GameManager : MonoBehaviour
     {
         newBar = (health/maxHealth);
         
-
-
         healthBar.fillAmount = newBar;
-
-       /* healthBar.transform.localScale = new Vector3((float)newBar, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
-        healthBar.transform.localPosition.Set(1, healthBar.transform.position.y, healthBar.transform.position.z);*/
 
     }
 
@@ -51,8 +50,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         setScoreText();
-        //Debug.Log(health);
-
     }
 
 }
