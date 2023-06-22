@@ -114,12 +114,13 @@ public class Slingshot : MonoBehaviour
 
             bullet = null;
             bulletCollider = null;
+            gameManager.incrementScore();
         }
         
 
         bulletIsExist = false;
 
-        gameManager.incrementScore();
+        
     }
 
     void ResetStrips() // bila dh tarik, dia akan reset balik position getah hitam tu
