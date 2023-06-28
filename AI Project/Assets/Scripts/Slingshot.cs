@@ -38,6 +38,7 @@ public class Slingshot : MonoBehaviour
         lineRenderers[1].positionCount = 2;
         lineRenderers[0].SetPosition(0, stripPosition[0].position);
         lineRenderers[1].SetPosition(0, stripPosition[1].position);
+        lineRenderers[2].SetPosition(0, stripPosition[0].position);
 
 
         CreateBullet();
@@ -80,14 +81,17 @@ public class Slingshot : MonoBehaviour
             {
                 bulletCollider.enabled = true;
             }
+
+            DisplayTrajectory();
         }
         else
         {
             ResetStrips();
+            lineRenderers[2].enabled = false;
         }
 
         SpawnNewBullet();
-        Debug.Log(bulletIsExist);
+        //Debug.Log(bulletIsExist);
     }
 
     private void OnMouseDown()
@@ -142,10 +146,49 @@ public class Slingshot : MonoBehaviour
         }
     }
 
+    void DisplayTrajectory ()
+    {
+        lineRenderers[2].enabled = true;
+
+        Vector2[] trajectory = Plot(bullet, (Vector2)center.position, (currentPosition - center.position) * force * -1, 180);
+
+        lineRenderers[2].positionCount = trajectory.Length;
+
+        Vector3[] positions = new Vector3[trajectory.Length];
+
+        for(int i = 0; i < trajectory.Length; i++)
+        {
+            positions[i] = trajectory[i];
+        }
+
+        lineRenderers[2].SetPositions(positions);
+    }
+
     Vector3 ClampBoundary(Vector3 vector)
     {
         vector.y = Mathf.Clamp(vector.y, bottomBoundary, 1000);
         return vector;
+    }
+
+    public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
+    {
+        Vector2[] results = new Vector2[steps];
+
+        float timestep = Time.fixedDeltaTime / Physics2D.velocityIterations;
+        Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timestep * timestep;
+
+        float drag = 1f - timestep * rigidbody.drag;
+        Vector2 moveStep = velocity * timestep;
+
+        for (int i = 0; i < steps; i++)
+        {
+            moveStep += gravityAccel;
+            moveStep *= drag;
+            pos += moveStep;
+            results[i] = pos;
+        }
+
+        return results;
     }
 
 }
