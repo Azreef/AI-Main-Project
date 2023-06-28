@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Image healthBar;
 
+    [SerializeField] GameObject PausePanel;
+
     float newBar;
 
 
@@ -50,6 +52,22 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         setScoreText();
+
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
+    public void Pause()
+    {
+        PausePanel.SetActive(true);
+        Time.timeScale = 0;   
+    }
+
+    public void Continue()
+    {
+        PausePanel.SetActive(false);
+        Time.timeScale = 1;   
+    }
 }
