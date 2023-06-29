@@ -5,13 +5,7 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     GameObject slingshotObject; 
-    
-    //DESTROY THE BULLET
-    void DestroyBullet()
-    {
-        Destroy(gameObject);
-    }
-
+      
     //DETECT COLLIDE
     void OnTriggerEnter2D(Collider2D collide)
     {
@@ -25,8 +19,6 @@ public class BulletManager : MonoBehaviour
 
             gameObject.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
 
-            //Debug.Log("BOOST");
-
             FindAnyObjectByType<SoundManager>().Play("boostSound");
         }
     }
@@ -37,9 +29,7 @@ public class BulletManager : MonoBehaviour
         //COLLIDE WITH ENEMY
         if (collision.gameObject.tag == "enemy")
         {
-            //explosion.Play();
             Destroy(gameObject);
-            Debug.Log("HIT");
         }
         else
         {
@@ -54,12 +44,10 @@ public class BulletManager : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(slingshotObject.GetComponent<Slingshot>().getBulletIsExist());
         if((!slingshotObject.GetComponent<Slingshot>().getBulletIsExist()))
         {
             if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("Lalu");
+            {  
                 Destroy(gameObject);
             }
         }

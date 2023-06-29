@@ -32,9 +32,5 @@ public class SoundManager : MonoBehaviour
             return;
         }
         s.source.Play();
-
-
-        /*Sounds s = Array.Find(sounds, sounds => sounds.name == name);
-        s.source.Play();*/
     }
 }

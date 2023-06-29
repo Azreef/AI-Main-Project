@@ -76,7 +76,6 @@ public class Slingshot : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(bulletIsExist);
         if (isMouseDown )
         {
             Vector3 mousePosition = Input.mousePosition;
