@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    public ParticleSystem explosion;
-    
+    GameObject slingshotObject; 
     
     //DESTROY THE BULLET
     void DestroyBullet()
@@ -42,11 +41,23 @@ public class BulletManager : MonoBehaviour
         }
     }
 
+
+    void Start()
+    {
+        slingshotObject = GameObject.FindWithTag("slingshot");
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Debug.Log(slingshotObject.GetComponent<Slingshot>().getBulletIsExist());
+        if((!slingshotObject.GetComponent<Slingshot>().getBulletIsExist()))
         {
-            Destroy(gameObject);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Lalu");
+                Destroy(gameObject);
+            }
         }
+            
+       
     }
 }

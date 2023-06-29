@@ -22,7 +22,7 @@ public class Slingshot : MonoBehaviour
     public float bottomBoundary;
 
     bool isMouseDown;
-    bool bulletIsExist;
+    public bool bulletIsExist;
 
 
     // bawah ni untuk main character punya attributes
@@ -51,11 +51,13 @@ public class Slingshot : MonoBehaviour
 
     void CreateBullet()
     {
+        
         bullet = Instantiate(bulletPrefab).GetComponent<Rigidbody2D>();
         bulletCollider = bullet.GetComponent<Collider2D>();
         bulletCollider.enabled = false;
 
         bullet.isKinematic = true;
+        bulletIsExist = true;
     }
     // Update is called once per frame
 
@@ -63,13 +65,14 @@ public class Slingshot : MonoBehaviour
     {
         if(!bulletIsExist && Input.GetKeyDown(KeyCode.Space))
         {
-            CreateBullet();
-            bulletIsExist = true;
-            //tipsText.SetActive(true);
+            Invoke("CreateBullet",1);
+           
+            
         }
     }
     void Update()
     {
+        //Debug.Log(bulletIsExist);
         if (isMouseDown )
         {
             Vector3 mousePosition = Input.mousePosition;
@@ -94,7 +97,7 @@ public class Slingshot : MonoBehaviour
             lineRenderers[2].enabled = false;
         }
 
-        SpawnNewBullet();
+        
         
         if(bulletIsExist)
         {
@@ -104,6 +107,8 @@ public class Slingshot : MonoBehaviour
         {
             tipsText.enabled = true;
         }
+
+        SpawnNewBullet();
     }
 
     private void OnMouseDown()
@@ -132,7 +137,6 @@ public class Slingshot : MonoBehaviour
             bulletCollider = null;
             gameManager.incrementScore();
 
-            
         }
         
         bulletIsExist = false;
@@ -203,4 +207,8 @@ public class Slingshot : MonoBehaviour
         return results;
     }
 
+    public bool getBulletIsExist()
+    {
+        return bulletIsExist;
+    }
 }

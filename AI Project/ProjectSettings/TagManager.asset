@@ -6,6 +6,7 @@ TagManager:
   tags:
   - booster
   - enemy
+  - slingshot
   layers:
   - Default
   - TransparentFX
