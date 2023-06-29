@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalShotText;
     [SerializeField] TextMeshProUGUI bestShotText;
 
+    bool soundIsPlayed = false;
+
     void Start()
     {
        StageOverPanel.SetActive(false);
@@ -50,6 +52,12 @@ public class PauseMenu : MonoBehaviour
     {
         if (data.getGameIsOver())
         {
+            if(!soundIsPlayed)
+            {
+                FindAnyObjectByType<SoundManager>().Play("menu2Sound");
+                soundIsPlayed = true;
+            }
+
             StageOverPanel.SetActive(true);
             totalShotText.text = "Total Shot: " + gameManager.getTotalScore().ToString();
             bestShotText.text = "Best Shot: " + data.getBestShot(data.getCurrentLevel());

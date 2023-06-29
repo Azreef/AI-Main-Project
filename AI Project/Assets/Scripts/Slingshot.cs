@@ -9,6 +9,7 @@ public class Slingshot : MonoBehaviour
 
     [SerializeField] GameManager gameManager;
     [SerializeField] TextMeshProUGUI tipsText;
+    
 
     public LineRenderer[] lineRenderers;
     public Transform[] stripPosition;
@@ -44,7 +45,7 @@ public class Slingshot : MonoBehaviour
         lineRenderers[1].SetPosition(0, stripPosition[1].position);
         lineRenderers[2].SetPosition(0, stripPosition[0].position);
 
-
+        
         CreateBullet();
 
         bulletIsExist = true;
@@ -138,6 +139,8 @@ public class Slingshot : MonoBehaviour
             bullet = null;
             bulletCollider = null;
             gameManager.incrementScore();
+
+            FindAnyObjectByType<SoundManager>().Play("shootSound");
 
         }
         

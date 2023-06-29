@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindAnyObjectByType<SoundManager>().Play("gameMusicSound");
+        Time.timeScale = 1;
         data.setCurrentLevel(currentlevel);
         levelText.text = "Level " + (currentlevel + 1).ToString();
         data.setGameIsOver(false);
@@ -82,5 +83,10 @@ public class GameManager : MonoBehaviour
     public int getTotalScore()
     {
         return currentScore;
+    }
+
+    public float getHealth()
+    {
+        return health;
     }
 }

@@ -25,7 +25,9 @@ public class BulletManager : MonoBehaviour
 
             gameObject.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
 
-            Debug.Log("BOOST");
+            //Debug.Log("BOOST");
+
+            FindAnyObjectByType<SoundManager>().Play("boostSound");
         }
     }
 
@@ -38,6 +40,10 @@ public class BulletManager : MonoBehaviour
             //explosion.Play();
             Destroy(gameObject);
             Debug.Log("HIT");
+        }
+        else
+        {
+            FindAnyObjectByType<SoundManager>().Play("bounceSound");
         }
     }
 

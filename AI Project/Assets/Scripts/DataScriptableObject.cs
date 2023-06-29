@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="sceneInfo", menuName = "Data")]
 public class DataScriptableObject : ScriptableObject
 {
-    [SerializeField] private int[] _bestShot = { 0, 0, 0, 0, 0, 0, 0 }; //Best Score
+    [SerializeField] private int[] _bestShot = { 0, 0, 0, 0, 0, 0, 0, 0}; //Best Score
 
     [SerializeField] private bool _gameIsOver;
 
