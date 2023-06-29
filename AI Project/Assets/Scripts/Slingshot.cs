@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Slingshot : MonoBehaviour
 {
 
     [SerializeField] GameManager gameManager;
+    [SerializeField] TextMeshProUGUI tipsText;
 
     public LineRenderer[] lineRenderers;
     public Transform[] stripPosition;
@@ -62,6 +65,7 @@ public class Slingshot : MonoBehaviour
         {
             CreateBullet();
             bulletIsExist = true;
+            //tipsText.SetActive(true);
         }
     }
     void Update()
@@ -91,7 +95,15 @@ public class Slingshot : MonoBehaviour
         }
 
         SpawnNewBullet();
-        //Debug.Log(bulletIsExist);
+        
+        if(bulletIsExist)
+        {
+            tipsText.enabled = false;
+        }
+        else if(!bulletIsExist)
+        {
+            tipsText.enabled = true;
+        }
     }
 
     private void OnMouseDown()
@@ -119,12 +131,12 @@ public class Slingshot : MonoBehaviour
             bullet = null;
             bulletCollider = null;
             gameManager.incrementScore();
+
+            
         }
         
-
         bulletIsExist = false;
 
-        
     }
 
     void ResetStrips() // bila dh tarik, dia akan reset balik position getah hitam tu
