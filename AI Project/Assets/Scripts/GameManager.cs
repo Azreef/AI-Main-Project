@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int currentScore, currentlevel;
 
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] Image healthBar;
 
     
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         
         data.setCurrentLevel(currentlevel);
-
+        levelText.text = "Level " + (currentlevel + 1).ToString();
         data.setGameIsOver(false);
     }
 

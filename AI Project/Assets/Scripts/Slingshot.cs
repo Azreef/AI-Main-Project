@@ -24,6 +24,7 @@ public class Slingshot : MonoBehaviour
     bool isMouseDown;
     public bool bulletIsExist;
 
+    bool isReloading = false;
 
     // bawah ni untuk main character punya attributes
     public GameObject bulletPrefab;
@@ -51,13 +52,13 @@ public class Slingshot : MonoBehaviour
 
     void CreateBullet()
     {
-        
         bullet = Instantiate(bulletPrefab).GetComponent<Rigidbody2D>();
         bulletCollider = bullet.GetComponent<Collider2D>();
         bulletCollider.enabled = false;
 
         bullet.isKinematic = true;
         bulletIsExist = true;
+        isReloading = false;
     }
     // Update is called once per frame
 
@@ -65,9 +66,11 @@ public class Slingshot : MonoBehaviour
     {
         if(!bulletIsExist && Input.GetKeyDown(KeyCode.Space))
         {
-            Invoke("CreateBullet",1);
-           
-            
+            if(!isReloading)
+            {
+                isReloading = true;
+                Invoke("CreateBullet", 0.3f);
+            }        
         }
     }
     void Update()
@@ -97,7 +100,6 @@ public class Slingshot : MonoBehaviour
             lineRenderers[2].enabled = false;
         }
 
-        
         
         if(bulletIsExist)
         {
