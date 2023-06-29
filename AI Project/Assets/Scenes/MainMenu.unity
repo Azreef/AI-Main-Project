@@ -417,6 +417,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &864633304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864633306}
+  - component: {fileID: 864633305}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &864633305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864633304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6a315f74ac94d49a03943658c4bd09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: shootSound
+    clip: {fileID: 8300000, guid: 2d985733f1795b44181c84c805d64972, type: 3}
+    volume: 0.285
+    source: {fileID: 0}
+  - name: bounceSound
+    clip: {fileID: 8300000, guid: 470e8350a3943684e83c54fa4f916d8b, type: 3}
+    volume: 0.359
+    source: {fileID: 0}
+  - name: boostSound
+    clip: {fileID: 8300000, guid: 281a1b6d5b3d0c84f973f0dc8520946a, type: 3}
+    volume: 0.359
+    source: {fileID: 0}
+  - name: hitSound
+    clip: {fileID: 8300000, guid: 6bfd45a5fbe782a4d9a7574ee19fa941, type: 3}
+    volume: 0.359
+    source: {fileID: 0}
+  - name: menu2Sound
+    clip: {fileID: 8300000, guid: 567dcd0c1e33a9543a5576718b4eb3ca, type: 3}
+    volume: 0.359
+    source: {fileID: 0}
+  - name: gameMusicSound
+    clip: {fileID: 8300000, guid: 152320da3b26bbc48b74a8ae8c431f84, type: 3}
+    volume: 0.051
+    source: {fileID: 0}
+  - name: menu1Sound
+    clip: {fileID: 8300000, guid: 64ebd4be51c7a9248924e3045c33d28f, type: 3}
+    volume: 0.149
+    source: {fileID: 0}
+  - name: mainMenuSound
+    clip: {fileID: 8300000, guid: 82e6e0eeaf052a340af978e607ea693f, type: 3}
+    volume: 0.074
+    source: {fileID: 0}
+--- !u!4 &864633306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864633304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.4876657, y: -1.8965479, z: 0.49999997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &933295602
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,8 +759,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1030,8 +1107,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1118,6 +1195,7 @@ GameObject:
   - component: {fileID: 2131333537}
   - component: {fileID: 2131333536}
   - component: {fileID: 2131333540}
+  - component: {fileID: 2131333541}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1220,5 +1298,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafcaeecc38d5924c97b42977fe519d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2131333541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131333535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e227c86daa2c040a5f71e395017eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

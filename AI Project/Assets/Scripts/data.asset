@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: data
   m_EditorClassIdentifier: 
   _bestShot: 0000000000000000000000000000000000000000000000000000000000000000
-  _gameIsOver: 0
-  _currentLevel: 5
+  _gameIsOver: 1
+  _currentLevel: 2
