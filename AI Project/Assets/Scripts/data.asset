@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c58dd289606fa48ac3d77f7772802e, type: 3}
   m_Name: data
   m_EditorClassIdentifier: 
-  _bestShot: 0000000005000000000000000000000000000000000000000000000000000000
-  _gameIsOver: 1
-  _currentLevel: 1
+  _bestShot: 0000000000000000000000000000000000000000000000000000000000000000
+  _gameIsOver: 0
+  _currentLevel: 5

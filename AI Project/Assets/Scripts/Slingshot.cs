@@ -82,7 +82,8 @@ public class Slingshot : MonoBehaviour
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 10;
 
-            currentPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            currentPosition.x = Camera.main.ScreenToWorldPoint(mousePosition).x;
+            currentPosition.y = Camera.main.ScreenToWorldPoint(mousePosition).y;
             currentPosition = center.position + Vector3.ClampMagnitude(currentPosition - center.position, maxLength);
 
             currentPosition = ClampBoundary(currentPosition);

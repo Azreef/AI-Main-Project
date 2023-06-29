@@ -23,6 +23,15 @@ public class ChangeScene : MonoBehaviour
     public void nextLevel()
     {
         FindAnyObjectByType<SoundManager>().Play("menu1Sound");
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+        if(SceneManager.GetActiveScene().buildIndex == 9)
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        
     }
 }

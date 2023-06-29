@@ -123,6 +123,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &185335230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.58986765
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.46086633
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12501384
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617032, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903990000477617036, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
+      propertyPath: m_Name
+      value: barrierPrefab (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 51d674392df16a546ad2e97ab3023af1, type: 3}
 --- !u!1001 &222658161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,6 +568,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &668406240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96471053
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.26331282
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790490, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -30.533
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533485581023790493, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
+      propertyPath: m_Name
+      value: boosterPrefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bcfba6a80cdd51549b368452b82c372a, type: 3}
 --- !u!114 &1225118562 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 859961443, guid: 82d5ffeee95a785419d04c458d592b71, type: 3}
@@ -610,7 +736,7 @@ MonoBehaviour:
   health: 5
   maxHealth: 5
   currentScore: 0
-  currentlevel: 0
+  currentlevel: 3
   scoreText: {fileID: 2120697623}
   levelText: {fileID: 1864614574}
   healthBar: {fileID: 1701485600}
