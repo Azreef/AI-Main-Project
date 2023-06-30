@@ -12,6 +12,7 @@ public class ScoreBoard : MonoBehaviour
     private void Awake()
     {
         setScoreBoard();
+        data.SetDirty();
     }
 
     public void resetScore()

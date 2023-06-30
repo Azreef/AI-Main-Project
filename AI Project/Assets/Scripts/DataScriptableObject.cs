@@ -5,12 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="sceneInfo", menuName = "Data")]
 public class DataScriptableObject : ScriptableObject
 {
-    [SerializeField] private int[] _bestShot = { 0, 0, 0, 0, 0, 0, 0, 0}; //Best Score
+     private int[] _bestShot = { 0, 0, 0, 0, 0, 0, 0, 0 }; //Best Score
 
-    [SerializeField] private bool _gameIsOver;
+     private bool _gameIsOver;
 
-    [SerializeField] private int _currentLevel;
+     private int _currentLevel;
 
+    private void Awake()
+    {
+        
+    }
 
     //GETTER
     public int getBestShot(int level)
